@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowUpRight, BriefcaseBusiness, FileText, MapPin, Sparkles } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, Code2, FileText, MapPin } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -35,7 +35,7 @@ const infoItems = [
   {
     label: "Building",
     value: "AI Products & Web Experiences",
-    icon: Sparkles,
+    icon: Code2,
     hoverClass: "group-hover:scale-110",
   },
   {

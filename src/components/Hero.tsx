@@ -264,7 +264,7 @@ export default function Hero() {
           isDarkNav ? "text-[#F5F5F5]" : "text-[#18181B]"
         }`}
       >
-        <div className="nav-top-anim flex gap-4 md:gap-8">
+        <div className="nav-meta nav-top-anim flex gap-4 md:gap-8">
           <span className="flex items-center gap-2">
             <span
               className={`h-1.5 w-1.5 rounded-full transition-colors duration-500 ${
@@ -277,7 +277,7 @@ export default function Hero() {
           <span className="hidden lg:inline-block">13.0827&deg; N, 80.2707&deg; E</span>
         </div>
 
-        <div className="nav-top-anim flex gap-6 md:gap-8">
+        <div className="nav-links nav-top-anim flex gap-6 md:gap-8">
           <a href="#" className="transition-opacity hover:opacity-60">HOME</a>
           <a href="#work" className="transition-opacity hover:opacity-60">WORKS</a>
           <a href="#about" className="transition-opacity hover:opacity-60">ABOUT</a>

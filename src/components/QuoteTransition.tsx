@@ -54,12 +54,12 @@ export default function QuoteTransition() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="quote-transition mt-20 flex min-h-[58vh] flex-col items-center justify-center overflow-hidden bg-[#F4F1EA] px-5 py-20 text-center md:mt-28 md:px-8">
-      <div className="quote-copy will-change-transform">
-        <p className="quote-line quote-line-top whitespace-nowrap font-body text-[clamp(3.2rem,6.6vw,7.2rem)] font-medium leading-[0.98] tracking-[-0.06em] text-[#18181B]">
+    <section ref={sectionRef} className="quote-transition mt-10 flex min-h-[42vh] flex-col items-center justify-center overflow-hidden bg-[#F4F1EA] px-5 py-14 text-center md:mt-28 md:min-h-[58vh] md:px-8 md:py-20">
+      <div className="quote-copy max-w-[22rem] will-change-transform md:max-w-none">
+        <p className="quote-line quote-line-top font-body text-[clamp(2.35rem,11vw,3.7rem)] font-medium leading-[1.02] tracking-[-0.055em] text-[#18181B] md:whitespace-nowrap md:text-[clamp(3.2rem,6.6vw,7.2rem)] md:leading-[0.98] md:tracking-[-0.06em]">
           Good products aren&apos;t built by accident.
         </p>
-        <p className="quote-line quote-line-bottom mt-5 whitespace-nowrap font-body text-[clamp(3.2rem,6.6vw,7.2rem)] font-medium leading-[0.98] tracking-[-0.06em] text-[#3F4954]">
+        <p className="quote-line quote-line-bottom mt-4 font-body text-[clamp(2.35rem,11vw,3.7rem)] font-medium leading-[1.02] tracking-[-0.055em] text-[#3F4954] md:mt-5 md:whitespace-nowrap md:text-[clamp(3.2rem,6.6vw,7.2rem)] md:leading-[0.98] md:tracking-[-0.06em]">
           They&apos;re built by solving real problems.
         </p>
       </div>
