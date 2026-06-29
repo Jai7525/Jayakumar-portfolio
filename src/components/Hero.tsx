@@ -200,10 +200,8 @@ export default function Hero() {
           "-=0.45",
         )
 
-      gsap.set(".hero-photo", { xPercent: -50 });
       gsap.to(".hero-photo", {
         y: -70,
-        xPercent: -50,
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,

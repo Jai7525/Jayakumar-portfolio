@@ -26,7 +26,7 @@ export const Tooltip = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.96 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 rounded-xl border border-[#DDD6CC] bg-[#FFFFFF] p-3 shadow-[0_12px_28px_rgba(0,0,0,0.12)] z-50 pointer-events-none"
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 rounded-xl border border-[#DDD6CC] bg-[#FFFFFF] p-3 shadow-[0_12px_28px_rgba(0,0,0,0.12)] z-50 pointer-events-none hidden md:block"
           >
             {content}
           </motion.div>
