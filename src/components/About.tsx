@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BrainCircuit, Database, LayoutGrid, Server, Terminal, Workflow } from "lucide-react";
+import { Tooltip } from "@/components/ui/tooltip-card";
 
 const lines = [
   [
@@ -26,9 +27,23 @@ const lines = [
     { text: "I build " },
     { text: "real products", highlight: true },
     { text: " - from " },
-    { text: "InboxIQ AI", highlight: true },
-    { text: " and " },
-    { text: "DevGuide AI", highlight: true },
+    { 
+      text: "InboxIQ AI", 
+      highlight: true, 
+      tooltip: { title: "InboxIQ AI", desc: "AI Email Security", image: "/jai3.webp" } 
+    },
+    { text: ", " },
+    { 
+      text: "DevGuide AI", 
+      highlight: true, 
+      tooltip: { title: "DevGuide AI", desc: "AI Codebase Understanding", image: "/jai2.webp" } 
+    },
+    { text: ", and " },
+    { 
+      text: "TaskFlow", 
+      highlight: true, 
+      tooltip: { title: "TaskFlow", desc: "Modern Work Management", image: "/taskflow.png" } 
+    },
     { text: " to modern full-stack applications - focused on " },
     { text: "solving meaningful problems", highlight: true },
     { text: " and creating " },
@@ -80,6 +95,24 @@ const skills = [
     icon: Terminal,
   },
 ];
+
+const ProjectTooltipCard = ({ title, desc, image }: { title: string; desc: string; image: string }) => {
+  return (
+    <div className="text-left font-body tracking-normal">
+      <img
+        src={image}
+        alt={title}
+        className="aspect-[16/10] w-full rounded-lg object-cover bg-[#F4F1EA]"
+      />
+      <div className="mt-3 flex flex-col">
+        <div className="text-base font-bold text-[#18181B] leading-tight tracking-tight">{title}</div>
+        <div className="mt-1 text-xs text-[#6B6B6B] tracking-normal">
+          {desc}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function About() {
   const containerRef = useRef<HTMLElement>(null);
@@ -158,29 +191,46 @@ export default function About() {
       ref={containerRef}
       className="about bg-[#F4F1EA] px-5 py-24 md:px-8 md:py-32"
     >
-      <div className="flex min-h-screen items-center justify-center">
+      <div className="flex min-h-[70vh] items-center justify-center">
         <div
           ref={aboutTextRef}
           className="about-text mx-auto max-w-[1080px] text-center font-about text-[clamp(1.75rem,3.35vw,3.85rem)] font-medium leading-[1.18] tracking-[-0.045em] text-[#6B6B6B] will-change-transform"
         >
           {lines.map((line, lineIndex) => (
-            <p key={lineIndex} className={lineIndex === 0 ? "" : "mt-4 md:mt-6"}>
-              {line.map((part, partIndex) =>
-                part.text
+            <div key={lineIndex} className={lineIndex === 0 ? "" : "mt-4 md:mt-6"}>
+              {line.map((part, partIndex) => {
+                const words = part.text
                   .trim()
                   .split(/\s+/)
                   .filter(Boolean)
                   .map((word, wordIndex) => (
-                    <span
-                      key={`${lineIndex}-${partIndex}-${wordIndex}`}
-                      className={`about-word ${part.highlight ? "font-bold" : ""}`}
-                      data-highlight={part.highlight ? "true" : "false"}
+                    <React.Fragment key={`${lineIndex}-${partIndex}-${wordIndex}`}>
+                      <span
+                        className={`about-word inline-block ${part.highlight ? "font-bold" : ""}`}
+                        data-highlight={part.highlight ? "true" : "false"}
+                      >
+                        {word}
+                      </span>
+                      {" "}
+                    </React.Fragment>
+                  ));
+
+                if ((part as any).tooltip) {
+                  const tooltipData = (part as any).tooltip;
+                  return (
+                    <Tooltip
+                      key={`${lineIndex}-${partIndex}`}
+                      content={<ProjectTooltipCard {...tooltipData} />}
+                      containerClassName="inline-flex cursor-pointer"
                     >
-                      {word}
-                    </span>
-                  )),
-              )}
-            </p>
+                      {words}
+                    </Tooltip>
+                  );
+                }
+
+                return <React.Fragment key={`${lineIndex}-${partIndex}`}>{words}</React.Fragment>;
+              })}
+            </div>
           ))}
         </div>
       </div>

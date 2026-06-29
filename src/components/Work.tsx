@@ -41,28 +41,28 @@ const projects = [
   },
   {
     index: "03",
-    title: "AgroStore",
-    platform: "Smart Agriculture Operations Platform",
-    description: "Warehouse booking, IoT monitoring, SMS alerts, and crop storage forecasting.",
-    tech: ["Flask", "SQLite", "HTML", "CSS", "Python"],
-    image: "/jai4.webp",
-    liveUrl: "https://agrostore.onrender.com",
-    githubUrl: "https://github.com/Jai7525/AgroStore",
-    year: "2025",
+    title: "TaskFlow",
+    platform: "Modern Work Management Platform",
+    description: "Organize tasks, track project progress, and manage workflows through a secure, modern dashboard.",
+    tech: ["React", "Express.js", "MySQL", "Sequelize", "Tailwind CSS"],
+    image: "/taskflow.png",
+    liveUrl: "https://taskflow-project-management-ten.vercel.app/",
+    githubUrl: "https://github.com/Jai7525/taskflow-project-management",
+    year: "2026",
     links: ["Live", "GitHub", "Case Study"],
     caseStudy: {
-      problem: "Farmers often struggle to find secure warehouse storage and manage bookings efficiently.",
-      solution: "Built a warehouse booking platform that connects farmers with available storage facilities.",
-      features: ["Farmer Registration", "Warehouse Listings", "Booking Management", "Admin Dashboard", "Storage Tracking"],
-      role: "Developed the booking workflow, authentication system, database design, and administrative tools.",
+      problem: "Small teams often lack a centralized workspace for organizing tasks, tracking progress, and maintaining visibility across ongoing work.",
+      solution: "Designed a centralized workspace that simplifies task organization, workflow tracking, and day-to-day project management.",
+      features: ["Task Management", "Dashboard Analytics", "Activity Timeline", "JWT Authentication", "Responsive Interface"],
+      role: "Designed and developed the complete full-stack application, including the React frontend, REST APIs, MySQL database, JWT authentication, and deployment workflow.",
     },
   },
   {
     index: "04",
-    title: "Portfolio",
-    platform: "Creative Developer Portfolio",
-    description: "Editorial design system, GSAP motion, custom interactions, and premium UX.",
-    tech: ["React", "GSAP", "Framer Motion", "Lenis", "Tailwind CSS"],
+    title: "Client Portfolio",
+    platform: "Creative Portfolio Website",
+    description: "Designed and developed a premium portfolio website for a client, featuring editorial layouts, smooth GSAP animations, and responsive interactions.",
+    tech: ["Next.js", "GSAP", "Framer Motion", "Lenis", "Tailwind CSS"],
     image: "/jai.1.webp",
     liveUrl: "https://jefrin.vercel.app/",
     year: "2026",
@@ -249,7 +249,7 @@ export default function Work() {
 
                   <div className="flex min-w-0 items-center justify-end">
                     <div className={`project-image w-full max-w-[420px] overflow-hidden bg-[#D8D4CC] transition-all duration-700 ${isExpanded ? "max-h-[288px] translate-y-0 scale-100 p-3 opacity-100" : "max-h-0 translate-y-4 scale-[0.96] p-0 opacity-0"}`}>
-                      <img src={project.image} alt={`${project.title} preview`} className="aspect-[16/10] h-full w-full bg-white object-contain object-center shadow-[0_12px_28px_rgba(0,0,0,0.24)]" />
+                      <img src={project.image} alt={`${project.title} preview`} className="aspect-[16/10] h-full w-full bg-white object-cover object-center shadow-[0_12px_28px_rgba(0,0,0,0.24)]" />
                     </div>
                   </div>
                 </div>

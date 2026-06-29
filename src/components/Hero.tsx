@@ -9,7 +9,27 @@ const nameLetters = "JAYAKUMAR".split("");
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [time, setTime] = useState("");
-  const [isDarkNav, setIsDarkNav] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 50) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   useEffect(() => {
     const updateClock = () => {
@@ -180,8 +200,10 @@ export default function Hero() {
           "-=0.45",
         )
 
+      gsap.set(".hero-photo", { xPercent: -50 });
       gsap.to(".hero-photo", {
         y: -70,
+        xPercent: -50,
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -190,19 +212,6 @@ export default function Hero() {
           scrub: true,
         },
       });
-
-      const contactSection = document.querySelector("#contact");
-      if (contactSection) {
-        ScrollTrigger.create({
-          trigger: contactSection,
-          start: "top 12%",
-          end: "bottom top",
-          onEnter: () => setIsDarkNav(true),
-          onEnterBack: () => setIsDarkNav(true),
-          onLeave: () => setIsDarkNav(false),
-          onLeaveBack: () => setIsDarkNav(false),
-        });
-      }
     }, containerRef);
 
     return () => {
@@ -259,18 +268,14 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} className="hero">
-      <div
-        className={`fixed left-4 right-4 top-5 z-[100] flex items-start justify-between font-body text-[10px] font-bold uppercase tracking-[0.18em] transition-colors duration-500 md:left-8 md:right-8 md:top-7 md:text-[11px] ${
-          isDarkNav ? "text-[#F5F5F5]" : "text-[#18181B]"
+      <div 
+        className={`fixed left-4 right-4 top-5 z-[100] flex items-start justify-between font-body text-[10px] font-bold uppercase tracking-[0.18em] text-white mix-blend-difference transition-transform duration-500 ease-in-out md:left-8 md:right-8 md:top-7 md:text-[11px] ${
+          isVisible ? "translate-y-0" : "-translate-y-[300%]"
         }`}
       >
         <div className="nav-meta nav-top-anim flex gap-4 md:gap-8">
           <span className="flex items-center gap-2">
-            <span
-              className={`h-1.5 w-1.5 rounded-full transition-colors duration-500 ${
-                isDarkNav ? "bg-[#16db65]" : "bg-[#18181B]"
-              }`}
-            />
+            <span className="h-1.5 w-1.5 rounded-full bg-white" />
             CHENNAI, IN
           </span>
           <span className="hidden md:inline-block">{time}</span>
@@ -278,10 +283,10 @@ export default function Hero() {
         </div>
 
         <div className="nav-links nav-top-anim flex gap-6 md:gap-8">
-          <a href="#" className="transition-opacity hover:opacity-60">HOME</a>
-          <a href="#work" className="transition-opacity hover:opacity-60">WORKS</a>
-          <a href="#about" className="transition-opacity hover:opacity-60">ABOUT</a>
-          <a href="#contact" className="transition-opacity hover:opacity-60">CONTACT</a>
+          <a href="#" className="transition-all duration-300 hover:opacity-70">HOME</a>
+          <a href="#work" className="transition-all duration-300 hover:opacity-70">WORKS</a>
+          <a href="#about" className="transition-all duration-300 hover:opacity-70">ABOUT</a>
+          <a href="#contact" className="transition-all duration-300 hover:opacity-70">CONTACT</a>
         </div>
       </div>
 
@@ -326,8 +331,8 @@ export default function Hero() {
           </span>
         </div>
 
-        <div className="anim-bottom pointer-events-auto absolute bottom-0 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center text-white md:flex">
-          <span className="mb-2 font-label text-[9px] font-bold uppercase tracking-[0.22em] text-gray-300 md:text-[10px]">
+        <div className="anim-bottom pointer-events-auto absolute bottom-0 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center text-white mix-blend-difference md:flex">
+          <span className="mb-2 font-label text-[9px] font-bold uppercase tracking-[0.22em] text-white md:text-[10px]">
             SOCIALS
           </span>
           <div className="flex gap-6 font-label text-[10px] font-bold uppercase tracking-[0.14em] md:text-[11px]">
