@@ -65,7 +65,7 @@ export default function Contact() {
           {
             y: 20,
             opacity: 0,
-            duration: 0.8,
+            duration: 0.5,
             ease: "power3.out",
           },
           0,
@@ -74,39 +74,39 @@ export default function Contact() {
           ".contact-line",
           {
             yPercent: 100,
-            duration: 1.2,
-            stagger: 0.15,
+            duration: 0.75,
+            stagger: 0.08,
             ease: "power4.out",
           },
-          "-=0.35",
+          "-=0.25",
         )
         .from(
           ".contact-description",
           {
-            y: 30,
+            y: 25,
             opacity: 0,
-            duration: 0.8,
+            duration: 0.55,
             ease: "power3.out",
           },
-          "-=0.45",
+          "-=0.35",
         )
         .from(
           ".contact-email",
           {
             scale: 0.95,
             opacity: 0,
-            duration: 0.7,
+            duration: 0.5,
             ease: "power3.out",
           },
-          "-=0.3",
+          "-=0.25",
         )
         .from(
           ".contact-social",
           {
-            y: 20,
+            y: 15,
             opacity: 0,
-            stagger: 0.1,
-            duration: 0.6,
+            stagger: 0.06,
+            duration: 0.45,
             ease: "power3.out",
           },
           "-=0.2",
@@ -114,22 +114,22 @@ export default function Contact() {
         .from(
           ".contact-info-card",
           {
-            y: 40,
+            y: 25,
             opacity: 0,
-            stagger: 0.1,
-            duration: 0.65,
+            stagger: 0.06,
+            duration: 0.45,
             ease: "power3.out",
           },
-          "-=0.1",
+          "-=0.15",
         )
         .from(
           ".contact-footer",
           {
             opacity: 0,
-            duration: 0.7,
+            duration: 0.45,
             ease: "power2.out",
           },
-          "-=0.2",
+          "-=0.15",
         );
     }, containerRef);
 
