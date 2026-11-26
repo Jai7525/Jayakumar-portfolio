@@ -34,9 +34,9 @@ const lines = [
     },
     { text: ", " },
     { 
-      text: "DevGuide AI", 
+      text: "SmartTicket", 
       highlight: true, 
-      tooltip: { title: "DevGuide AI", desc: "AI Codebase Understanding", image: "/jai2.webp" } 
+      tooltip: { title: "SmartTicket", desc: "AI IT Support & Service Desk", image: "/smartticket.jpg" } 
     },
     { text: ", and " },
     { 
