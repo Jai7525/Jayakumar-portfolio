@@ -309,7 +309,7 @@ export default function Hero() {
       </div>
 
       <div className="role-left font-heading text-4xl uppercase tracking-[0.08em] text-[#111111] md:text-5xl lg:text-6xl">
-        AI &amp; FULL-STACK
+        SOFTWARE
       </div>
       <div className="role-right font-heading text-4xl uppercase tracking-[0.08em] text-[#111111] md:text-5xl lg:text-6xl">
         DEVELOPER
